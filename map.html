@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="map.css" >
+    <link rel="stylesheet" href="./node_modules/L.Control.Sidebar.css" />
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./node_modules/leaflet/dist/leaflet.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="nxt-content">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="https://www.nachbarschaftsmarktplatz.de">
+          <img src="./icon-white-1.png" width="50" alt="">
+          Nachbarschaftsmarktplatz
+        </a>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="https://docs.google.com/forms/d/e/1FAIpQLSecVXEX2rcJP-9bUxHsKXu3ZgQTeRpUvd0dH9tbi0BRVSgISQ/viewform">Shop registrieren</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">Infos</a>
+            </li>
+          </ul>
+      </nav>
+    </div>
+
+    <div id="sidebar"></div>
+    <div id="map"></div>
+    <script src="shop_data.js"></script>
+    <script src="map.js"></script>
+    <script src="./node_modules/L.Control.Sidebar.js"></script>
+    <script>
+      var sidebar = L.control.sidebar('sidebar', {
+            closeButton: false,
+            position: 'right'
+        });
+        map.addControl(sidebar);
+
+      function create_markers(val, idx, array) {
+        function onClickMarker(e) {
+          if (sidebar.isVisible()) {
+            sidebar.hide()
+          } else {
+            sidebar.setContent('test <b>sdfddssssssssssssssssssssssssss <br> sdfsdfsdfsdf </b> test');
+            sidebar.show();
+          }
+        }
+        marker = L.marker([val['latitude'], val['longitude']])
+        marker.addTo(map);
+        marker.on('click', onClickMarker);
+      };
+
+
+
+      shop_data.forEach(create_markers)
+    </script>
+  </body>
+</html>
+
