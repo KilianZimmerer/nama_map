@@ -7,10 +7,10 @@ var osmMap = 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png'
 var cartoDB = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
 // load a tile layer
 L.tileLayer(
-  cartoDB,
+  toBeUsedTile,
   {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 17,
+    maxZoom: 16,
     minZoom: 11,
     accessToken: 123,
     tileSize: 512,
