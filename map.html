@@ -58,12 +58,8 @@
           </div>`
         )
         function onClickMarker(e) {
-          if (sidebar.isVisible()) {
-            sidebar.hide()
-          } else {
-            sidebar.setContent(sidebarContent);
-            sidebar.show();
-          }
+          sidebar.setContent(sidebarContent);
+          sidebar.show();
         }
         marker = L.marker([val['latitude'], val['longitude']])
         marker.addTo(map);
