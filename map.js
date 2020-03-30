@@ -4,9 +4,10 @@ var imgNotAvailable = 'https://www.postfreeadvertising.com/wp-content/uploads/20
 var toBeUsedTile = 'https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token={accessToken}'
 var stadiamaps = 'https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}.png'
 var osmMap = 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png'
+var cartoDB = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
 // load a tile layer
 L.tileLayer(
-  toBeUsedTile,
+  cartoDB,
   {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 17,
