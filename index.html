@@ -25,14 +25,100 @@
         </a>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="https://docs.google.com/forms/d/e/1FAIpQLSecVXEX2rcJP-9bUxHsKXu3ZgQTeRpUvd0dH9tbi0BRVSgISQ/viewform" target="_blank">Shop registrieren</a>
+              <a class="nav-link" href="#" role="button" data-toggle="modal" data-target="#Modal1"> Shop registrieren </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" role="button" onclick="openInfoSidebar()">Infos</a>
+                <a class="nav-link" href="#" role="button" onclick="openInfoSidebar()"> Infos </a>
             </li>
           </ul>
       </nav>
     </div>
+
+    <!-- The Modal 1-->
+    <div class="modal" id="Modal1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Shop registrieren - Seite 1</h4>
+          </div>
+
+          <!-- Modal body 1 -->
+          <div class="modal-body">
+              <div class="form-group">
+                <label for="usr">Name des Geschäfts</label>
+                <input type="text" class="form-control" id="usr">
+              </div>
+              <div class="form-group">
+                <label for="usr">Email</label>
+                <input type="text" class="form-control" id="usr">
+              </div>
+              <div class="form-group">
+                <label for="usr">Telefon (Unter der Kund*innen euch erreichen können)</label>
+                <input type="text" class="form-control" id="usr">
+              </div>
+              <div class="form-group">
+                <label for="usr">Zeiten für telefonische Erreichbarkeit</label>
+                <div class="input-append date" id="datetimepicker" data-date="00:00">
+                  von
+                  <input class="span2" size="12" type="text" value="08:00">
+                  <span class="add-on"><i class="icon-th"></i></span> 
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  bis
+                  <input class="span2" size="12" type="text" value="20:00">
+                  <span class="add-on"><i class="icon-th"></i></span>
+              </div>
+              </div>
+              <button type="button" class="btn btn-primary float-right" onclick="showModal('Modal2')">Weiter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Modal 2-->
+    <div class="modal" id="Modal2">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Shop registrieren - Seite 2</h4>
+          </div>
+
+          <!-- Modal body 2 -->
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="usr">Beschreibung des Geschäfts (2 Sätze, optional)</label>
+              <textarea class="form-control" rows="3" id="comment"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="usr">Webseite</label>
+              <input type="text" class="form-control" id="usr">
+            </div>
+              <div class="form-group">
+                <label for="usr">Kategorien</label>
+                <input type="text" class="form-control" id="usr">
+              </div>
+              <form>
+                Bild wählen:
+                <input type="file" id="myFile" name="filename2">
+                <br> <br>
+              </form>
+              <button type="submit" class="btn btn-primary float-right">Absenden</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showModal(id) {
+        $(".modal").modal('hide');
+        $("#" + id).modal();
+      }
+    </script>
+
+
 
     <script src="shop_data.js"></script>
     <script src="map.js"></script>
