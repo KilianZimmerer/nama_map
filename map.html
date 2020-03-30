@@ -14,6 +14,9 @@
   </head>
 
   <body>
+    <div id="sidebar"></div>
+    <div id="map"></div>
+
     <div class="nxt-content">
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <a class="navbar-brand" href="https://www.nachbarschaftsmarktplatz.de">
@@ -22,33 +25,43 @@
         </a>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="https://docs.google.com/forms/d/e/1FAIpQLSecVXEX2rcJP-9bUxHsKXu3ZgQTeRpUvd0dH9tbi0BRVSgISQ/viewform">Shop registrieren</a>
+              <a class="nav-link" href="https://docs.google.com/forms/d/e/1FAIpQLSecVXEX2rcJP-9bUxHsKXu3ZgQTeRpUvd0dH9tbi0BRVSgISQ/viewform" target="_blank">Shop registrieren</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Infos</a>
+                <a class="nav-link" href="#" role="button" onclick="openInfoSidebar()">Infos</a>
             </li>
           </ul>
       </nav>
     </div>
 
-    <div id="sidebar"></div>
-    <div id="map"></div>
     <script src="shop_data.js"></script>
     <script src="map.js"></script>
     <script src="./node_modules/L.Control.Sidebar.js"></script>
     <script>
       var sidebar = L.control.sidebar('sidebar', {
             closeButton: false,
-            position: 'right'
+            position: 'right',
+            autoPan: false,
         });
         map.addControl(sidebar);
 
       function create_markers(val, idx, array) {
+        var sidebarContent = (
+          `<div>
+            <img src="${val['logo']}" alt="" style="width:250px" class="rounded">
+            <br>
+            <h3>${val['company_name']}</h3>
+            <hr>
+            <img src="./location_icon.png" style="width:20px"> ${val['address']}
+            <br> <br>
+            <img src="./home_icon.png" style="width:20px">  <a href="${val['shop_url']}">online shop</a>
+          </div>`
+        )
         function onClickMarker(e) {
           if (sidebar.isVisible()) {
             sidebar.hide()
           } else {
-            sidebar.setContent('test <b>sdfddssssssssssssssssssssssssss <br> sdfsdfsdfsdf </b> test');
+            sidebar.setContent(sidebarContent);
             sidebar.show();
           }
         }
@@ -57,9 +70,26 @@
         marker.on('click', onClickMarker);
       };
 
+      map.on('click', onClickMap);
 
+      function onClickMap(e) {
+        if (sidebar.isVisible()) {
+          sidebar.hide()
+      }
+    }
 
       shop_data.forEach(create_markers)
+
+    function openInfoSidebar() {
+      if (sidebar.isVisible()) {
+            sidebar.hide()
+      } else {
+          sidebar.setContent((
+            "<div> <h2> Wer wir sind </h> </div>"
+            ))
+          sidebar.show();
+        }
+    }
     </script>
   </body>
 </html>
