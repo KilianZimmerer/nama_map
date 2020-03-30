@@ -10,6 +10,8 @@ L.tileLayer(
     maxZoom: 17,
     minZoom: 5,
     accessToken: 'pk.eyJ1IjoibXl1c2VybmFtZWlzdGhpcyIsImEiOiJjazhjcnBhaGIwM3EwM29wZ25xNDhyanc4In0.Z_35X_kOuFSvYRsMnf8QfA',
+    tileSize: 512,
+    zoomOffset: -1
   }
 ).addTo(map);
 
