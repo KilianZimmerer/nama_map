@@ -58,8 +58,14 @@
           </div>`
         )
         function onClickMarker(e) {
+          if (idx == sidebar.state) {
+            sidebar.hide()
+            sidebar.state = array.lengths
+          } else {
           sidebar.setContent(sidebarContent);
+          sidebar.state = idx
           sidebar.show();
+          }
         }
         marker = L.marker([val['latitude'], val['longitude']])
         marker.addTo(map);
@@ -74,7 +80,7 @@
       }
     }
 
-      shop_data.forEach(create_markers)
+    shop_data.forEach(create_markers)
 
     function openInfoSidebar() {
       var infosContent = (
@@ -89,12 +95,9 @@
           </p>
         </div>`
       )
-      if (sidebar.isVisible()) {
-            sidebar.hide()
-      } else {
-          sidebar.setContent(infosContent)
-          sidebar.show();
-        }
+      sidebar.setContent(infosContent);
+      sidebar.toggle();
+
     }
     </script>
   </body>
