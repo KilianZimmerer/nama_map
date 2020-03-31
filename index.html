@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="map.css" >
     <link rel="stylesheet" href="./node_modules/L.Control.Sidebar.css" />
-
+    <link rel="stylesheet" href="modal.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./node_modules/leaflet/dist/leaflet.js"></script>
@@ -72,22 +72,6 @@
                 <label for="usr">Email</label>
                 <input type="text" class="form-control" name="shop_email">
               </div>
-              <div class="form-group">
-                <label for="usr">Telefon (Unter der Kund*innen Sie erreichen können)</label>
-                <input type="text" class="form-control" name="shop_phone">
-              </div>
-              <div class="form-group">
-                <label for="usr">Telefonische Erreichbarkeit</label>
-                <div class="input-append date" id="datetimepicker" data-date="00:00">
-                  von
-                  <input class="span2" size="10" type="text" value="08:00" name="phone_availability_from">
-                  <span class="add-on"><i class="icon-th"></i></span>
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  bis
-                  <input class="span2" size="10" type="text" value="20:00" name="phone_availability_until">
-                  <span class="add-on"><i class="icon-th"></i></span>
-              </div>
-              </div>
               <button type="button" class="btn btn-primary float-right" onclick="showModal('Modal2')">Weiter</button>
           </div>
         </div>
@@ -106,6 +90,25 @@
 
           <!-- Modal body 2 -->
           <div class="modal-body">
+            <div class="form-group">
+              <label for="usr">Telefon (Unter der Kund*innen Sie erreichen können)</label>
+              <input type="text" class="form-control" name="shop_phone">
+            </div>
+            <div class="form-group">
+              <label for="usr">Telefonische Erreichbarkeit</label>
+              <div class="checkbox">
+                <label><input type="checkbox" value=""> Freitag </label>
+                  von
+                  &nbsp;
+                  <input class="span2" size="10" type="text" value="08:00" name="phone_availability_from">
+                  <span class="add-on"><i class="icon-th"></i></span>
+                  &nbsp;
+                  bis
+                  &nbsp;
+                  <input class="span2" size="10" type="text" value="20:00" name="phone_availability_until">
+                  <span class="add-on"><i class="icon-th"></i></span>
+              </div>
+            </div>
             <div class="form-group">
               <label for="usr">Beschreibung des Geschäfts (2 Sätze, optional)</label>
               <textarea class="form-control" rows="3" name="shop_description"></textarea>
