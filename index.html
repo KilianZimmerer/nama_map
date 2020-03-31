@@ -52,7 +52,7 @@
 
           <!-- Modal Header -->
           <div class="modal-header">
-            <h4 class="modal-title">Shop registrieren - Seite 1</h4>
+            <h4 class="modal-title">Shop Registrierung</h4>
           </div>
 
           <!-- Modal body 1 -->
@@ -74,6 +74,10 @@
               <input type="text" class="form-control" name="shop_email" required="true">
             </div>
             <div class="form-group">
+              <label for="usr">Webseite</label>
+              <input type="text" class="form-control" name="shop_website">
+            </div>
+            <div class="form-group">
               <label for="usr">Telefon (Unter der Kund*innen Sie erreichen können)</label>
               <input type="text" class="form-control" name="shop_phone">
             </div>
@@ -86,12 +90,12 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="usr">Beschreibung des Geschäfts (2 Sätze, optional)</label>
-              <textarea class="form-control" rows="3" name="shop_description"></textarea>
+              <label for="usr">Beschreibung des Geschäfts (3-4 Sätze, optional)</label>
+              <textarea class="form-control" rows="3" name="shop_description" placeholder="Diese Beschreibung wird Ihrem Shop Profil angefügt."></textarea>
             </div>
             <div class="form-group">
-              <label for="usr">Webseite</label>
-              <input type="text" class="form-control" name="shop_website">
+              <label for="usr">Kassensystem/Warenwirtschaftssystem</label>
+              <textarea class="form-control" rows="3" name="warenwirtschaftssystem" placeholder="Falls ein Warenwirtschaftsprogramm benutzt wird, freuen wir uns über die Information welches, um eine einfache Anbindung an den Online Shop zu ermöglichen."></textarea>
             </div>
             <div class="form-group">
               <label for="usr">Kategorien</label>
@@ -101,7 +105,7 @@
               <label for="usr">Versandmöglichkeiten</label>
               <div class="checkbox">
                 <label><input type="checkbox" value=""> Abholung </label> &nbsp;
-                <label><input type="checkbox" value=""> Fahrradlieferung </label> &nbsp;
+                <label><input type="checkbox" value=""> Interesse an Fahrradlieferung </label> &nbsp;
                 <label><input type="checkbox" value=""> Versand per Post </label>
                 <div class="input-group mb-3">
                   <input type="text" class="form-control" placeholder="Weitere Versandmöglichkeit">
@@ -169,7 +173,7 @@
 
   </script>
   <script>
-    var weekdays = ['Mo-Do', 'Freitag', 'Samstag'];
+    var weekdays = ['Mo-Do', 'Freitag'];
     var cList = $('ul.mylist')
 
     var from = (label) => {
