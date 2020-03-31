@@ -4,7 +4,7 @@
 Shop Name: <?php echo $_POST["shop_name"]; ?><br>
 Email: <?php echo $_POST["shop_email"]; ?>
 Telefon: <?php echo $_POST["shop_phone"]; ?>
-Erreichbarkeit: von <?php echo $_POST["phone_availability_from"]; ?> bis <?php echo $_POST["phone_availability_until"]; ?>
+Erreichbarkeit: <?php echo isset($_POST["Freitag"]); ?> von <?php echo $_POST["Freitag_phone_availability_from"]; ?> bis <?php echo $_POST["Montag_phone_availability_to"]; ?>
 Beschreibung: <?php echo $_POST["shop_description"]; ?>
 Webseite: <?php echo $_POST["shop_website"]; ?>
 Kategorien: <?php echo $_POST["shop_categories"]; ?>
