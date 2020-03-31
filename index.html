@@ -44,92 +44,76 @@
 
 
     <form action="submit_registration.php" method="POST" enctype="multipart/form-data">
-    <!-- The Modal 1-->
-    <div class="modal" id="Modal1">
-      <div class="modal-dialog">
-        <div class="modal-content">
+      <!-- The Modal 1-->
+      <div class="modal" id="Modal1">
+        <div class="modal-dialog">
+          <div class="modal-content">
 
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Shop registrieren - Seite 1</h4>
-          </div>
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Shop registrieren - Seite 1</h4>
+            </div>
 
-          <!-- Modal body 1 -->
-          <div class="modal-body">
+            <!-- Modal body 1 -->
+            <div class="modal-body">
               <div class="form-group">
                 <label for="usr">Name des Geschäfts</label>
-                <input type="text" class="form-control" name="shop_name">
+                <input type="text" class="form-control" name="shop_name" required="true">
+                <div class="invalid-feedback">asdasd.</div>
               </div>
               <div class="form-group">
                 <label for="usr">Straße und Hausnummer</label>
-                <input type="text" class="form-control" name="shop_street">
+                <input type="text" class="form-control" name="shop_street" required="true">
               </div>
               <div class="form-group">
                 <label for="usr">PLZ</label>
-                <input type="text" class="form-control" name="shop_plz">
+                <input type="text" class="form-control" name="shop_plz" required="true">
               </div>
               <div class="form-group">
                 <label for="usr">Email</label>
-                <input type="text" class="form-control" name="shop_email">
+                <input type="text" class="form-control" name="shop_email" required="true">
               </div>
-              <button type="button" class="btn btn-primary float-right" onclick="showModal('Modal2')">Weiter</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- The Modal 2-->
-    <div class="modal" id="Modal2">
-      <div class="modal-dialog">
-        <div class="modal-content">
-
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Shop registrieren - Seite 2</h4>
-          </div>
-
-          <!-- Modal body 2 -->
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="usr">Telefon (Unter der Kund*innen Sie erreichen können)</label>
-              <input type="text" class="form-control" name="shop_phone">
-            </div>
-            <div class="form-group">
-              <label for="usr">Telefonische Erreichbarkeit</label>
-              <div class="checkbox">
-                <label><input type="checkbox" value=""> Freitag </label>
-                  von
-                  &nbsp;
-                  <input class="span2" size="10" type="text" value="08:00" name="phone_availability_from">
-                  <span class="add-on"><i class="icon-th"></i></span>
-                  &nbsp;
-                  bis
-                  &nbsp;
-                  <input class="span2" size="10" type="text" value="20:00" name="phone_availability_until">
-                  <span class="add-on"><i class="icon-th"></i></span>
+              <div class="form-group">
+                <label for="usr">Telefon (Unter der Kund*innen Sie erreichen können)</label>
+                <input type="text" class="form-control" name="shop_phone">
               </div>
-            </div>
-            <div class="form-group">
-              <label for="usr">Beschreibung des Geschäfts (2 Sätze, optional)</label>
-              <textarea class="form-control" rows="3" name="shop_description"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="usr">Webseite</label>
-              <input type="text" class="form-control" name="shop_website">
-            </div>
+              <div class="form-group">
+                <label for="usr">Telefonische Erreichbarkeit</label>
+                <div class="checkbox">
+                  <label><input type="checkbox" value=""> Freitag </label>
+                    von
+                    &nbsp;
+                    <input class="span2" size="10" type="text" value="00:00" name="phone_availability_from">
+                    <span class="add-on"><i class="icon-th"></i></span>
+                    &nbsp;
+                    bis
+                    &nbsp;
+                    <input class="span2" size="10" type="text" value="00:00" name="phone_availability_until">
+                    <span class="add-on"><i class="icon-th"></i></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="usr">Beschreibung des Geschäfts (2 Sätze, optional)</label>
+                <textarea class="form-control" rows="3" name="shop_description"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="usr">Webseite</label>
+                <input type="text" class="form-control" name="shop_website">
+              </div>
               <div class="form-group">
                 <label for="usr">Kategorien</label>
                 <input type="text" class="form-control" name="shop_categories">
               </div>
-              Bild wählen:
-              <input type="file" name="image" />
-              <br> <br>
-              <button type="button" class="btn btn-primary float-left" onclick="showModal('Modal1')">Zurück</button>
+              <div>
+                Bild wählen:
+                <input type="file" name="image" />
+                <br> <br>
+              </div>
               <button type="submit" class="btn btn-primary float-right">Absenden</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </form>
 
     <script>
