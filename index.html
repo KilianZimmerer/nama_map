@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css"/>
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="map.css" >
-    <link rel="stylesheet" href="./node_modules/L.Control.Sidebar.css" />
-    <link rel="stylesheet" href="modal.css" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./node_modules/leaflet/dist/leaflet.js"></script>
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="map.css">
+  <link rel="stylesheet" href="./node_modules/L.Control.Sidebar.css" />
+  <link rel="stylesheet" href="modal.css" />
 
-    <script type="text/javascript">
-      $(window).on('load',function(){
-          $('#Modal1').modal('show');
-      });
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="./node_modules/leaflet/dist/leaflet.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+    $(window).on('load', function () {
+      $('#Modal1').modal('show');
+    });
   </script>
 
-  </head>
+</head>
 
-  <body>
-    <div id="sidebar"></div>
-    <div id="map"></div>
+<body>
+  <div id="sidebar"></div>
+  <div id="map"></div>
 
-    <div class="nxt-content">
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand" href="https://www.nachbarschaftsmarktplatz.de">
-          <img src="./icon-white-1.png" width="50" alt="">
-          Nachbarschaftsmarktplatz
-        </a>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#" role="button" data-toggle="modal" data-target="#Modal1"> Shop registrieren </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" role="button" onclick="openInfoSidebar()"> Infos </a>
-            </li>
-          </ul>
-      </nav>
-    </div>
+  <div class="nxt-content">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a class="navbar-brand" href="https://www.nachbarschaftsmarktplatz.de">
+        <img src="./icon-white-1.png" width="50" alt="">
+        Nachbarschaftsmarktplatz
+      </a>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button" data-toggle="modal" data-target="#Modal1"> Shop registrieren </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button" onclick="openInfoSidebar()"> Infos </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
 
-    <form action="submit_registration.php" method="POST" enctype="multipart/form-data">
+  <form action="submit_registration.php" method="POST" enctype="multipart/form-data">
     <!-- The Modal 1-->
     <div class="modal" id="Modal1">
       <div class="modal-dialog">
@@ -56,23 +57,23 @@
 
           <!-- Modal body 1 -->
           <div class="modal-body">
-              <div class="form-group">
-                <label for="usr">Name des Geschäfts</label>
-                <input type="text" class="form-control" name="shop_name">
-              </div>
-              <div class="form-group">
-                <label for="usr">Straße und Hausnummer</label>
-                <input type="text" class="form-control" name="shop_street">
-              </div>
-              <div class="form-group">
-                <label for="usr">PLZ</label>
-                <input type="text" class="form-control" name="shop_plz">
-              </div>
-              <div class="form-group">
-                <label for="usr">Email</label>
-                <input type="text" class="form-control" name="shop_email">
-              </div>
-              <button type="button" class="btn btn-primary float-right" onclick="showModal('Modal2')">Weiter</button>
+            <div class="form-group">
+              <label for="usr">Name des Geschäfts</label>
+              <input type="text" class="form-control" name="shop_name">
+            </div>
+            <div class="form-group">
+              <label for="usr">Straße und Hausnummer</label>
+              <input type="text" class="form-control" name="shop_street">
+            </div>
+            <div class="form-group">
+              <label for="usr">PLZ</label>
+              <input type="text" class="form-control" name="shop_plz">
+            </div>
+            <div class="form-group">
+              <label for="usr">Email</label>
+              <input type="text" class="form-control" name="shop_email">
+            </div>
+            <button type="button" class="btn btn-primary float-right" onclick="showModal('Modal2')">Weiter</button>
           </div>
         </div>
       </div>
@@ -97,16 +98,9 @@
             <div class="form-group">
               <label for="usr">Telefonische Erreichbarkeit</label>
               <div class="checkbox">
-                <label><input type="checkbox" value=""> Freitag </label>
-                  von
-                  &nbsp;
-                  <input class="span2" size="10" type="text" value="08:00" name="phone_availability_from">
-                  <span class="add-on"><i class="icon-th"></i></span>
-                  &nbsp;
-                  bis
-                  &nbsp;
-                  <input class="span2" size="10" type="text" value="20:00" name="phone_availability_until">
-                  <span class="add-on"><i class="icon-th"></i></span>
+                <ul class="mylist">
+                </ul>
+
               </div>
             </div>
             <div class="form-group">
@@ -117,52 +111,52 @@
               <label for="usr">Webseite</label>
               <input type="text" class="form-control" name="shop_website">
             </div>
-              <div class="form-group">
-                <label for="usr">Kategorien</label>
-                <input type="text" class="form-control" name="shop_categories">
-              </div>
-              Bild wählen:
-              <input type="file" name="image" />
-              <br> <br>
-              <button type="button" class="btn btn-primary float-left" onclick="showModal('Modal1')">Zurück</button>
-              <button type="submit" class="btn btn-primary float-right">Absenden</button>
+            <div class="form-group">
+              <label for="usr">Kategorien</label>
+              <input type="text" class="form-control" name="shop_categories">
+            </div>
+            Bild wählen:
+            <input type="file" name="image" />
+            <br> <br>
+            <button type="button" class="btn btn-primary float-left" onclick="showModal('Modal1')">Zurück</button>
+            <button type="submit" class="btn btn-primary float-right">Absenden</button>
           </div>
         </div>
       </div>
     </div>
-    </form>
+  </form>
 
-    <script>
-      function showModal(id) {
-        $(".modal").modal('hide');
-        $("#" + id).modal();
-      }
-    </script>
+  <script>
+    function showModal(id) {
+      $(".modal").modal('hide');
+      $("#" + id).modal();
+    }
+  </script>
 
 
 
-    <script src="shop_data.js"></script>
-    <script src="create_map.js"></script>
-    <script src="./node_modules/L.Control.Sidebar.js"></script>
-    <script>
-      var sidebar = L.control.sidebar('sidebar', {
-            closeButton: false,
-            position: 'right',
-            autoPan: false,
-        });
-        map.addControl(sidebar);
-    </script>
-    <script src="create_markers.js"></script>
-    <script>
-      map.on('click', onClickMap);
+  <script src="shop_data.js"></script>
+  <script src="create_map.js"></script>
+  <script src="./node_modules/L.Control.Sidebar.js"></script>
+  <script>
+    var sidebar = L.control.sidebar('sidebar', {
+      closeButton: false,
+      position: 'right',
+      autoPan: false,
+    });
+    map.addControl(sidebar);
+  </script>
+  <script src="create_markers.js"></script>
+  <script>
+    map.on('click', onClickMap);
 
     function onClickMap(e) {
       if (sidebar.isVisible()) {
-      sidebar.hide()
+        sidebar.hide()
       }
     }
-    </script>
-    <script>
+  </script>
+  <script>
     function openInfoSidebar() {
       var infosContent = (
         `<div>
@@ -181,7 +175,47 @@
 
     }
 
-    </script>
-  </body>
-</html>
+  </script>
+  <script>
+    var weekdays = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];
+    var cList = $('ul.mylist')
 
+    var from = () => {
+      return $('<input />', {
+        size: 10,
+        value: '08:00',
+        name: 'phone_availability_from',
+        class: 'span2',
+      })
+    }
+    var to = () => {
+      return $('<input />')
+        .addClass('span2')
+        .attr('size', 10)
+        .attr('value', '20:00')
+        .attr('name', 'phone_availability_to')
+    }
+    var checkbox = (label) => {
+      return $('<label />')
+        .append(
+          $('<input />', {
+            type: 'checkbox',
+            value: '',
+          })
+        ).append('&nbsp;' + label + '&nbsp;')
+    }
+
+    $.each(weekdays, function (i) {
+
+      var li = $('<li/>')
+        .append(checkbox(weekdays[i]))
+        .append('von&nbsp;')
+        .append(from())
+        .append('&nbsp;bis&nbsp;')
+        .append(to())
+        .appendTo(cList);
+    });
+  </script>
+</body>
+
+</html>
