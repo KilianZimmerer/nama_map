@@ -16,9 +16,9 @@ function create_markers(val, idx, array) {
       sidebar.hide()
       sidebar.state = array.lengths
     } else {
-    sidebar.setContent(sidebarContent);
-    sidebar.state = idx
-    sidebar.show();
+      sidebar.setContent(sidebarContent);
+      sidebar.state = idx
+      sidebar.show();
     }
   }
   marker = L.marker([val['latitude'], val['longitude']])

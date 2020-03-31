@@ -1,5 +1,5 @@
 // initialize the map
-var map = L.map('map', {zoomControl: true}).setView([52.511946, 13.406166], 14);
+var map = L.map('map', { zoomControl: true }).setView([52.511946, 13.406166], 14);
 var imgNotAvailable = 'https://www.postfreeadvertising.com/wp-content/uploads/2018/08/no-image-available-grid-263x172.png'
 var toBeUsedTile = 'https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token={accessToken}'
 var stadiamaps = 'https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}.png'
