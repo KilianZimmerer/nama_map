@@ -9,25 +9,26 @@ $shopInfo->postal_code = $_POST["shop_plz"];
 $shopInfo->email = $_POST["shop_email"];
 $shopInfo->website_url = $_POST["shop_website"];
 $shopInfo->phone_number = $_POST["shop_phone"];
-$shopInfo->mo_do_phone_availability = tooBoolean($_POST["Mo-Do_availability"]);
+$shopInfo->mo_do_phone_availability = tooBit($_POST["Mo-Do_availability"]);
 $shopInfo->mo_do_phone_availability_from = $_POST["Mo-Do_phone_availability_from"];
 $shopInfo->mo_do_phone_availability_until = $_POST["Mo-Do_phone_availability_to"];
-$shopInfo->fr_phone_availability = tooBoolean($_POST["Freitag_availability"]);
+$shopInfo->fr_phone_availability = tooBit($_POST["Freitag_availability"]);
 $shopInfo->fr_phone_availability_from = $_POST["Freitag_phone_availability_from"];
 $shopInfo->fr_phone_availability_until = $_POST["Freitag_phone_availability_to"];
 $shopInfo->shop_description = $_POST["shop_description"];
 $shopInfo->merchandise_managment_system_description = $_POST["warenwirtschaftssystem"];
 $shopInfo->categories = $_POST["shop_categories"];
-$shopInfo->shipping_pick_up = tooBoolean($_POST["pick_up"]);
-$shopInfo->shipping_bicycle_delivery = tooBoolean($_POST["bicycle"]);
-$shopInfo->shipping_postal = tooBoolean($_POST["postal"]);
-$shopInfo->shipping_misc = tooBoolean($_POST["misc_shipping"]);
+$shopInfo->shipping_pick_up = tooBit($_POST["pick_up"]);
+$shopInfo->shipping_bicycle_delivery = tooBit($_POST["bicycle"]);
+$shopInfo->shipping_postal = tooBit($_POST["postal"]);
+$shopInfo->shipping_misc = tooBit($_POST["misc_shipping"]);
 
-function tooBoolean($input) {
+function tooBit($input) {
+    echo $input;
     if (isset($input)) {
-        return True;
+        return 1;
     } else {
-        return False;
+        return 0;
     }
 }
 
@@ -44,6 +45,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+echo $shopInfo->mo_do_phone_availability;
 /* create a prepared statement */
 if ($stmt = $conn->prepare('INSERT INTO Shops (
     name,
@@ -70,7 +72,7 @@ if ($stmt = $conn->prepare('INSERT INTO Shops (
 
     /* bind parameters for markers */
     $stmt->bind_param(
-        "ssssssssssssssssssss",
+        "sssssssississsssiiis",
         $shopInfo->name,
         $shopInfo->street_name,
         $shopInfo->street_number,
@@ -94,7 +96,7 @@ if ($stmt = $conn->prepare('INSERT INTO Shops (
 
     /* execute query */
     $stmt->execute();
-
+    echo 6;
     /* close statement */
     $stmt->close();
 
