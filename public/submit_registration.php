@@ -25,7 +25,6 @@ $shopInfo->shipping_misc = toBit($_POST["misc_shipping"]);
 
 function toBit($input)
 {
-    echo $input;
     if (isset($input)) {
         return 1;
     } else {
@@ -34,7 +33,6 @@ function toBit($input)
 }
 
 $address = $_POST['shop_street'];
-echo $address;
 $geo = fetch_geo_data($address);
 // print_r($geo);
 // var_dump($geo);
@@ -100,4 +98,5 @@ if ($stmt = $connection->prepare('INSERT INTO Shops (
 
 mysqli_close($connection);
 
+header("Location: https://map.nachbarschaftsmarktplatz.de");
 // header('Location: ' . $_SERVER["HTTP_REFERER"] );

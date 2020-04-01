@@ -3,8 +3,7 @@ function db_connect()
 {
 
   $config = parse_ini_file('config.ini');
-  // $config = parse_ini_file('../private/config.ini');
-  print_r($config);
+
 
   static $connection;
 
@@ -22,6 +21,4 @@ $connection = db_connect();
 
 if ($connection->connect_error) {
   die("Connection failed: " . $connection->connect_error);
-} else {
-  echo 'all good';
 }
