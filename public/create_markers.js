@@ -4,7 +4,11 @@ function create_markers(val, idx, array) {
     `<div>
       <img src="${val['logo']}" alt="" style="width:250px" class="rounded">
       <br>
-      <h3>${val['company_name']}</h3>
+      <h4>${val['company_name']}</h4>
+      <hr>
+      <p class="text-justify">
+      ${val['description']}
+      </p>
       <hr>
       <img src="./location_icon.png" style="width:20px"> ${val['address']}
       <br> <br>

@@ -20,7 +20,7 @@
       right: 0; }
   .leaflet-sidebar > .leaflet-control {
     height: 100%;
-    width: 300px;
+    width: 330px;
     float: right;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
