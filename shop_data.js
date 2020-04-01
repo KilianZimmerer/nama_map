@@ -46,3 +46,5 @@ var shop_data = [
     'longitude': 13.408166,
   }
 ];
+
+var shop_data = [];
