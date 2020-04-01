@@ -8,6 +8,8 @@ CREATE TABLE Shops (
     name varchar(255),
     street_name varchar(255),
     street_number varchar(255),
+    latitute varchar(255),
+    longitude varchar(255),
     postal_code varchar(255),
     email varchar(255),
     website_url varchar(255),

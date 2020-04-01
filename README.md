@@ -10,6 +10,6 @@
 https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-16-04
 
 
-`sudo apt install php php-mysql libapache2-mod-php`
+`sudo apt install php php-mysql libapache2-mod-php php-curl`
 `sudo systemctl restart apache2`
 
