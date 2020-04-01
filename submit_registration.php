@@ -44,9 +44,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-
 /* create a prepared statement */
-if ($stmt = $mysqli->prepare('INSERT INTO test131 (
+if ($stmt = $conn->prepare('INSERT INTO Shops (
     name,
     street_name,
     street_number,
@@ -66,39 +65,42 @@ if ($stmt = $mysqli->prepare('INSERT INTO test131 (
     shipping_pick_up,
     shipping_bicycle_delivery,
     shipping_postal,
-    shipping_misc,
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'))
+    shipping_misc
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')) {
 
-/* bind parameters for markers */
-$stmt->bind_param(
-    "ssss",
-    $shopInfo['name'],
-    $shopInfo['street_name'],
-    $shopInfo['street_number'],
-    $shopInfo['postal_code'],
-    $shopInfo['email'],
-    $shopInfo['website_url'],
-    $shopInfo['phone_number'],
-    $shopInfo['mo_do_phone_availability'],
-    $shopInfo['mo_do_phone_availability_from'],
-    $shopInfo['mo_do_phone_availability_until'],
-    $shopInfo['fr_phone_availability'],
-    $shopInfo['fr_phone_availability_from'],
-    $shopInfo['fr_phone_availability_until'],
-    $shopInfo['shop_description'],
-    $shopInfo['merchandise_managment_system_description'],
-    $shopInfo['categories'],
-    $shopInfo['shipping_pick_up'],
-    $shopInfo['shipping_bicycle_delivery'],
-    $shopInfo['shipping_postal'],
-    $shopInfo['shipping_misc']);
+    /* bind parameters for markers */
+    $stmt->bind_param(
+        "ssssssssssssssssssss",
+        $shopInfo->name,
+        $shopInfo->street_name,
+        $shopInfo->street_number,
+        $shopInfo->postal_code,
+        $shopInfo->email,
+        $shopInfo->website_url,
+        $shopInfo->phone_number,
+        $shopInfo->mo_do_phone_availability,
+        $shopInfo->mo_do_phone_availability_from,
+        $shopInfo->mo_do_phone_availability_until,
+        $shopInfo->fr_phone_availability,
+        $shopInfo->fr_phone_availability_from,
+        $shopInfo->fr_phone_availability_until,
+        $shopInfo->shop_description,
+        $shopInfo->merchandise_managment_system_description,
+        $shopInfo->categories,
+        $shopInfo->shipping_pick_up,
+        $shopInfo->shipping_bicycle_delivery,
+        $shopInfo->shipping_postal,
+        $shopInfo->shipping_misc);
 
-/* execute query */
-$stmt->execute();
+    /* execute query */
+    $stmt->execute();
 
-/* close statement */
-$stmt->close();
+    /* close statement */
+    $stmt->close();
 
+}
 mysqli_close($conn);
 
 ?>
+</body>
+</html>
