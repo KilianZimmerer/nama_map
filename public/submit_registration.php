@@ -21,7 +21,7 @@ $shopInfo->categories = $_POST["shop_categories"];
 $shopInfo->shipping_pick_up = toBit($_POST["pick_up"]);
 $shopInfo->shipping_bicycle_delivery = toBit($_POST["bicycle"]);
 $shopInfo->shipping_postal = toBit($_POST["postal"]);
-$shopInfo->shipping_misc = toBit($_POST["misc_shipping"]);
+$shopInfo->shipping_misc = $_POST["misc_shipping"];
 
 function toBit($input)
 {
@@ -98,5 +98,5 @@ if ($stmt = $connection->prepare('INSERT INTO Shops (
 
 mysqli_close($connection);
 
-header("Location: https://map.nachbarschaftsmarktplatz.de");
-// header('Location: ' . $_SERVER["HTTP_REFERER"] );
+// header("Location: https://map.nachbarschaftsmarktplatz.de");
+header('Location: ' . $_SERVER["HTTP_REFERER"] );

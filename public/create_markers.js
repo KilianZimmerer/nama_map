@@ -30,4 +30,43 @@ function create_markers(val, idx, array) {
   marker.on('click', onClickMarker);
 };
 
-shop_data.forEach(create_markers);
+// add data from file
+// TODO: migrate to db
+shop_data.map(create_markers);
+// add data from db
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function () {
+  if (this.readyState === 4 && this.status === 200) {
+    var shopData = JSON.parse(this.responseText);
+    shopData.map(toMarker).forEach(create_markers);
+  }
+};
+xmlhttp.open("GET", "get_shop_info.php", true);
+xmlhttp.send();
+
+var toMarker = function (data) {
+  return {
+    'company_name': data.name,
+    'address': createAdress(data),
+    'phone_number': data.phone_number,
+    'email': data.email,
+    'shop_url': data.website_url,
+    'description': data.shop_description,
+    'logo': '',
+    'sortiment': data.categories || '',
+    'latitude': hasValidGeoData(data) ? data.latitute : '',
+    'longitude': hasValidGeoData(data) ? data.longitude : '',
+  };
+}
+
+const hasValidGeoData = ({
+  latitute,
+  longitude,
+}) => latitute && longitude;
+
+const createAdress = ({
+  street_name: street,
+  street_number: number,
+  postal_code: zipCode,
+
+}) => `${street}${number ? ' '+number : ''}, ${zipCode} Berlin`
