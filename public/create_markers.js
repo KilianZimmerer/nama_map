@@ -50,7 +50,7 @@ var toMarker = function (data) {
     'address': createAdress(data),
     'phone_number': data.phone_number,
     'email': data.email,
-    'shop_url': data.website_url,
+    'shop_url': buildExternalLink(data.website_url),
     'description': data.shop_description,
     'logo': '',
     'sortiment': data.categories || '',
@@ -68,5 +68,14 @@ const createAdress = ({
   street_name: street,
   street_number: number,
   postal_code: zipCode,
+}) => `${street}${number ? ' ' + number : ''}, ${zipCode} Berlin`
 
-}) => `${street}${number ? ' '+number : ''}, ${zipCode} Berlin`
+const hasHttp = url => /^https?:\/\//.test(url)
+
+const buildExternalLink = (url) => {
+  if (hasHttp(url)) {
+    // could check if server is reachable
+    return url;
+  }
+  return 'https://' + url;
+}

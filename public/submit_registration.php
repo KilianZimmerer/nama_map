@@ -1,4 +1,6 @@
 <?php
+header('Content-type: text/html; charset=utf-8');
+
 require_once('./includes/helpers.php');
 require_once('./includes/dbconnect.php');
 
@@ -98,5 +100,5 @@ if ($stmt = $connection->prepare('INSERT INTO Shops (
 
 mysqli_close($connection);
 
-// header("Location: https://map.nachbarschaftsmarktplatz.de");
+//header("Location: https://map.nachbarschaftsmarktplatz.de");
 header('Location: ' . $_SERVER["HTTP_REFERER"] );

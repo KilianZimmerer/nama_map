@@ -1,4 +1,6 @@
 <?php
+header('Content-type: text/html; charset=utf-8');
+
 // use php-curl to get contents
 function curl_get_contents($url)
 {
