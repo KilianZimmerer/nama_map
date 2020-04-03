@@ -17,17 +17,17 @@ function curl_get_contents($url)
   return $data;
 }
 
-function create_url($address)
+function create_url($address, $plz)
 {
   $url = "https://nominatim.openstreetmap.org/search/";
-  $url .= rawurlencode($address . " Berlin");
+  $url .= rawurlencode($address . " " . $plz);
   $url .= "?format=json";
   return $url;
 }
 
-function fetch_geo_data($address)
+function fetch_geo_data($address, $plz)
 {
-  $url = create_url($address);
+  $url = create_url($address, $plz);
   $json = curl_get_contents($url);
   $response = json_decode($json, true);
 

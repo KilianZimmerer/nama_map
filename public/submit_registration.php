@@ -35,7 +35,8 @@ function toBit($input)
 }
 
 $address = $_POST['shop_street'];
-$geo = fetch_geo_data($address);
+$plz = $_POST['shop_plz'];
+$geo = fetch_geo_data($address, $plz);
 // print_r($geo);
 // var_dump($geo);
 
