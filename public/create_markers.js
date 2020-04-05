@@ -27,8 +27,9 @@ function create_markers(val, idx, array) {
   }
   function onClickMap(e) {
     if (sidebar.isVisible()) {
-      sidebar.hide()
-      sidebar.state = array.lengths
+      sidebar.hide();
+      sidebar.state = array.lengths;
+      sidebar.infoSidebarState = 0;
     }
   }
   map.on('click', onClickMap);
