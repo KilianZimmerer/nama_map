@@ -85,27 +85,27 @@
           <div class="modal-body">
             <div class="form-group">
               <label for="usr">Name des Geschäfts</label>
-              <input type="text" class="form-control" name="shop_name" required="true">
+              <input type="text" class="form-control" name="shop_name" required="true", maxlength="255">
             </div>
             <div class="form-group">
               <label for="usr">Straße und Hausnummer</label>
-              <input type="text" class="form-control" name="shop_street" required="true">
+              <input type="text" class="form-control" name="shop_street" required="true" maxlength="255">
             </div>
             <div class="form-group">
               <label for="usr">PLZ</label>
-              <input type="text" class="form-control" name="shop_plz" required="true">
+              <input type="text" class="form-control" name="shop_plz" required="true" maxlength="5">
             </div>
             <div class="form-group">
               <label for="usr">Email</label>
-              <input type="text" class="form-control" name="shop_email" required="true">
+              <input type="text" class="form-control" name="shop_email" required="true" maxlength="255">
             </div>
             <div class="form-group">
               <label for="usr">Webseite</label>
-              <input type="text" class="form-control" name="shop_website">
+              <input type="text" class="form-control" name="shop_website" maxlength="255">
             </div>
             <div class="form-group">
               <label for="usr">Telefonnummer (Unter der Kund*innen Sie erreichen können)</label>
-              <input type="text" class="form-control" name="shop_phone">
+              <input type="text" class="form-control" name="shop_phone" maxlength="255">
             </div>
             <div class="form-group">
               <label for="usr">Telefonische Erreichbarkeit</label>
@@ -119,19 +119,19 @@
             <div class="form-group">
               <label for="usr">Beschreibung des Geschäfts (3-4 Sätze, optional)</label>
               <textarea class="form-control" rows="3" name="shop_description"
-                placeholder="Diese Beschreibung wird Ihrem Shop Profil angefügt."></textarea>
+                placeholder="Diese Beschreibung wird Ihrem Shop Profil angefügt." maxlength="500"></textarea>
             </div>
             <hr>
             <div class="form-group">
               <label for="usr">Kassensystem/Warenwirtschaftssystem</label>
               <textarea class="form-control" rows="3" name="warenwirtschaftssystem"
-                placeholder="Falls ein Warenwirtschaftsprogramm benutzt wird, freuen wir uns über die Information welches, um eine einfache Anbindung an den Online Shop zu ermöglichen."></textarea>
+                placeholder="Falls ein Warenwirtschaftsprogramm benutzt wird, freuen wir uns über die Information welches, um eine einfache Anbindung an den Online Shop zu ermöglichen." maxlength="1000"></textarea>
             </div>
             <hr>
             <div class="form-group">
               <label for="usr">Warenkategorien, getrennt durch Komma</label>
               <input type="text" class="form-control" name="shop_categories"
-                placeholder="z.B. Tabakwaren, Zeitschriften, Bücher, Getränke" required="true">
+                placeholder="z.B. Tabakwaren, Zeitschriften, Bücher, Getränke" required="true" maxlength="255">
             </div>
             <hr>
             <div class="form-group">
@@ -141,7 +141,7 @@
                 <label><input type="checkbox" value="" name="bicycle"> Interesse an Fahrradlieferung </label> <br>
                 <label><input type="checkbox" value="" name="postal"> Versand per Post </label>
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Weitere Versandmöglichkeit" name="misc_shipping">
+                  <input type="text" class="form-control" placeholder="Weitere Versandmöglichkeit" name="misc_shipping" maxlength="255">
                 </div>
                 <hr>
                 <p>Zum einbinden auf unserer Webseite schicken Sie uns gerne Bilder und Logos Ihres Geschäfts an
@@ -212,6 +212,7 @@
         value: '00:00',
         name: label + '_phone_availability_from',
         class: 'span2',
+        maxlength: '5',
       })
     }
     var to = (label) => {
@@ -219,6 +220,7 @@
         .addClass('span2')
         .attr('size', 10)
         .attr('value', '00:00')
+        .attr('maxlength', '5')
         .attr('name', label + '_phone_availability_to')
     }
     var checkbox = (label) => {
