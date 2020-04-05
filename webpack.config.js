@@ -1,7 +1,7 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
-var publicDir = 'public';
+var publicDir = 'dist';
 
 module.exports = {
   entry: './src/index.ts',
@@ -9,17 +9,27 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.png$/,
+        use: [
+          'file-loader'
+        ]
+      },
     ],
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: [ '.tsx', '.ts', '.js'],
   },
   output: {
-    filename: 'index.js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, publicDir),
   },
   devServer: {

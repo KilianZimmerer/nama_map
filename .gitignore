@@ -1,3 +1,6 @@
-private
-node_modules
-public
+# yarn
+node_modules/
+yarn-error.log
+
+# webpack
+dist/

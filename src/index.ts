@@ -1,10 +1,10 @@
-function component() {
-  const element = document.createElement('div');
+import { createMap } from './map'
 
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = 'Hello Webpack'
-
+function createRoot() {
+  const element = document.createElement('div')
+  element.id = 'map'
   return element;
 }
 
-document.body.appendChild(component());
+document.body.appendChild(createRoot());
+createMap()

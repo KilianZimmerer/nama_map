@@ -1,0 +1,22 @@
+/* full screen map */
+body {
+  padding: 0;
+  margin: 0;
+}
+html, body, #map {
+    z-index: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+ }
+
+ .nxt-content {
+   z-index: 1;
+   position: absolute;
+   width: 100%;
+ }
+
+ .navbar {
+    height: 50px;
+    width: 100%;
+}
