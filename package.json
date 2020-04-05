@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server"
+  },
   "dependencies": {
     "bootstrap": "^4.4.1",
     "leaflet": "^1.6.0",
@@ -12,6 +16,7 @@
     "@types/bootstrap": "^4.3.2",
     "@types/leaflet": "^1.5.12",
     "@types/ramda": "^0.27.3",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.2",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.0.4",
