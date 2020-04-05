@@ -101,5 +101,4 @@ if ($stmt = $connection->prepare('INSERT INTO Shops (
 
 mysqli_close($connection);
 
-//header("Location: https://map.nachbarschaftsmarktplatz.de");
-header('Location: ' . $_SERVER["HTTP_REFERER"] );
+echo 0;
