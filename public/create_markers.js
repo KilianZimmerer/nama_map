@@ -25,6 +25,13 @@ function create_markers(val, idx, array) {
       sidebar.show();
     }
   }
+  function onClickMap(e) {
+    if (sidebar.isVisible()) {
+      sidebar.hide()
+      sidebar.state = array.lengths
+    }
+  }
+  map.on('click', onClickMap);
   marker = L.marker([val['latitude'], val['longitude']])
   marker.addTo(map);
   marker.on('click', onClickMarker);
