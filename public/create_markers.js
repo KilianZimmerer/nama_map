@@ -30,9 +30,6 @@ function create_markers(val, idx, array) {
   marker.on('click', onClickMarker);
 };
 
-// add data from file
-// TODO: migrate to db
-shop_data.map(create_markers);
 // add data from db
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function () {
