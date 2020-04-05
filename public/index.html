@@ -187,8 +187,13 @@
         </div>`
       )
       sidebar.setContent(infosContent);
-      sidebar.toggle();
-
+      if (sidebar.infoSidebarState == 1) {
+        sidebar.hide();
+        sidebar.infoSidebarState = 0;
+      } else {
+        sidebar.show();
+        sidebar.infoSidebarState = 1;
+      }
     }
 
   </script>
