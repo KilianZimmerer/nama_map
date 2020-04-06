@@ -84,31 +84,31 @@
           <!-- Modal body 1 -->
           <div class="modal-body">
             <div class="form-group">
-              <label for="usr">Name des Geschäfts</label>
-              <input type="text" class="form-control" name="shop_name" required="true", maxlength="255">
+              <label class="control-label" for="shop_name">Name des Geschäfts</label> <span class="required">*</span>
+              <input type="text" class="form-control" name="shop_name" required="required", maxlength="255">
             </div>
             <div class="form-group">
-              <label for="usr">Straße und Hausnummer</label>
-              <input type="text" class="form-control" name="shop_street" required="true" maxlength="255">
+              <label class="control-label" for="shop_street">Straße und Hausnummer</label> <span class="required">*</span>
+              <input type="text" class="form-control" name="shop_street" required="required" maxlength="255">
             </div>
             <div class="form-group">
-              <label for="usr">PLZ</label>
-              <input type="text" class="form-control" name="shop_plz" required="true" maxlength="5">
+              <label class="control-label" for="shop_plz">PLZ</label> <span class="required">*</span>
+              <input type="text" class="form-control" name="shop_plz" required="required" maxlength="5">
             </div>
             <div class="form-group">
-              <label for="usr">Email</label>
-              <input type="text" class="form-control" name="shop_email" required="true" maxlength="255">
+              <label class="control-label" for="shop_email">Email</label> <span class="required">*</span>
+              <input type="text" class="form-control" name="shop_email" required="required" maxlength="255">
             </div>
             <div class="form-group">
-              <label for="usr">Webseite</label>
-              <input type="text" class="form-control" name="shop_website" maxlength="255">
+              <label for="shop_website">Webseite</label>
+              <input type="text" class="form-control" name="shop_website" maxlength="255" placeholder="optional">
             </div>
             <div class="form-group">
-              <label for="usr">Telefonnummer (Unter der Kund*innen Sie erreichen können)</label>
-              <input type="text" class="form-control" name="shop_phone" maxlength="255">
+              <label for="shop_name">Telefonnummer (Unter der Kund*innen Sie erreichen können)</label>
+              <input type="text" class="form-control" name="shop_phone" placeholder="optional" maxlength="255">
             </div>
             <div class="form-group">
-              <label for="usr">Telefonische Erreichbarkeit</label>
+              <label>Telefonische Erreichbarkeit (optional) </label>
               <div class="checkbox">
                 <ul class="mylist">
                 </ul>
@@ -117,21 +117,21 @@
             </div>
             <hr>
             <div class="form-group">
-              <label for="usr">Beschreibung des Geschäfts (3-4 Sätze, optional)</label>
+              <label for="shop_description">Beschreibung des Geschäfts (3-4 Sätze, optional)</label>
               <textarea class="form-control" rows="3" name="shop_description"
-                placeholder="Diese Beschreibung wird Ihrem Shop Profil angefügt." maxlength="500"></textarea>
+                placeholder="Diese Beschreibung wird Ihrem Shop Profil angefügt." maxlength="700"></textarea>
             </div>
             <hr>
             <div class="form-group">
-              <label for="usr">Kassensystem/Warenwirtschaftssystem</label>
+              <label for="warenwirtschaftssystem">Kassensystem/Warenwirtschaftssystem (optional)</label>
               <textarea class="form-control" rows="3" name="warenwirtschaftssystem"
                 placeholder="Falls ein Warenwirtschaftsprogramm benutzt wird, freuen wir uns über die Information welches, um eine einfache Anbindung an den Online Shop zu ermöglichen." maxlength="1000"></textarea>
             </div>
             <hr>
             <div class="form-group">
-              <label for="usr">Warenkategorien, getrennt durch Komma</label>
+              <label class="control-label" for="shop_categories">Warenkategorien, getrennt durch Komma</label> <span class="required">*</span>
               <input type="text" class="form-control" name="shop_categories"
-                placeholder="z.B. Tabakwaren, Zeitschriften, Bücher, Getränke" required="true" maxlength="255">
+                placeholder="z.B. Tabakwaren, Zeitschriften, Bücher, Getränke" required="required" maxlength="255">
             </div>
             <hr>
             <div class="form-group">
@@ -141,7 +141,7 @@
                 <label><input type="checkbox" value="" name="bicycle"> Interesse an Fahrradlieferung </label> <br>
                 <label><input type="checkbox" value="" name="postal"> Versand per Post </label>
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Weitere Versandmöglichkeit" name="misc_shipping" maxlength="255">
+                  <input type="text" class="form-control" placeholder="Weitere Versandmöglichkeit (optional)" name="misc_shipping" maxlength="255">
                 </div>
                 <hr>
                 <p>Zum einbinden auf unserer Webseite schicken Sie uns gerne Bilder und Logos Ihres Geschäfts an
