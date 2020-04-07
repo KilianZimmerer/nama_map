@@ -1,3 +1,4 @@
+USE shop_info;
 INSERT INTO shops (
   name,
   street_name,
