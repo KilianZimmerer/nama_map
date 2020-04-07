@@ -16,20 +16,6 @@
     crossorigin=""></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-  <script type="text/javascript">
-    if( document.referrer.indexOf('map.nachbarschaftsmarktplatz') == -1){
-      $(window).on('load', function () {
-      $('#Modal1').modal('show');
-      });
-    } else {
-      $(window).on('load', function () {
-      $('#Modal2').modal('show');
-    });
-    }
-
-  </script>
-
 </head>
 
 <body>
@@ -44,7 +30,8 @@
       </a>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#" role="button" data-toggle="modal" data-target="#Modal1"> Shop registrieren </a>
+          <a class="nav-link" href="#" role="button" data-toggle="modal" data-target="#shopRegistration"> Shop
+            registrieren </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" role="button" onclick="openInfoSidebar()"> Infos </a>
@@ -53,35 +40,17 @@
     </nav>
   </div>
 
-  <!-- Modal -->
-<div id="Modal2" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-body">
-        <p>Vielen Dank. Ihre Eingabe wird überprüft und schon bald auf der Karte sichtbar werden.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-  <form action="submit_registration.php" method="POST" enctype="multipart/form-data">
-    <!-- The Modal 1-->
-    <div class="modal" id="Modal1">
-      <div class="modal-dialog">
-        <div class="modal-content">
+  <div id="shopRegistration" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="registrationForm" method="POST" enctype="multipart/form-data">
 
           <!-- Modal Header -->
           <div class="modal-header">
             <h4 class="modal-title">Shop Registrierung</h4>
           </div>
 
-          <!-- Modal body 1 -->
+          <!-- Modal body -->
           <div class="modal-body">
             <div class="form-group">
               <label class="control-label" for="shop_name">Name des Geschäfts</label> <span class="required">*</span>
@@ -145,21 +114,30 @@
                 </div>
                 <hr>
                 <p>Zum einbinden auf unserer Webseite schicken Sie uns gerne Bilder und Logos Ihres Geschäfts an
-                <a href="nachbarschaftsmarktplatz@posteo.de">nachbarschaftsmarktplatz@posteo.de</a></p>
+                  <a href="nachbarschaftsmarktplatz@posteo.de">nachbarschaftsmarktplatz@posteo.de</a></p>
                 <button type="submit" class="btn btn-primary float-right">Absenden</button>
                 <br> <br>
               </div>
             </div>
           </div>
-        </div>
-  </form>
+        </form>
+      </div>
+    </div>
+  </div>
 
-  <script>
-    function showModal(id) {
-      $(".modal").modal('hide');
-      $("#" + id).modal();
-    }
-  </script>
+  <div id="registrationSuccess" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>Vielen Dank. Ihre Eingabe wird überprüft und schon bald auf der Karte sichtbar werden.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <script src="create_map.js"></script>
   <script src="L.Control.Sidebar.js"></script>
@@ -240,6 +218,8 @@
         .appendTo(cList);
     });
   </script>
+
+  <script src="model.js"></script>
 </body>
 
 </html>

@@ -34,12 +34,9 @@ function toBit($input)
     }
 }
 
-$address = $_POST['shop_street'];
-$plz = $_POST['shop_plz'];
-$geo = fetch_geo_data($address, $plz);
-// print_r($geo);
-// var_dump($geo);
-
+$geo = fetch_geo_data($_POST['shop_street'], $_POST['shop_plz']);
+$shopInfo->latitude = $geo['latitude'];
+$shopInfo->longitude = $geo['longitude'];
 /* create a prepared statement */
 if ($stmt = $connection->prepare('INSERT INTO Shops (
     name,
@@ -72,8 +69,8 @@ if ($stmt = $connection->prepare('INSERT INTO Shops (
         $shopInfo->name,
         $shopInfo->street_name,
         $shopInfo->street_number,
-        $geo['latitude'],
-        $geo['longitude'],
+        $shopInfo->latitude,
+        $shopInfo->longitude,
         $shopInfo->postal_code,
         $shopInfo->email,
         $shopInfo->website_url,
@@ -99,7 +96,4 @@ if ($stmt = $connection->prepare('INSERT INTO Shops (
     $stmt->close();
 }
 
-mysqli_close($connection);
-
-//header("Location: https://map.nachbarschaftsmarktplatz.de");
-header('Location: ' . $_SERVER["HTTP_REFERER"] );
+echo json_encode($shopInfo);
