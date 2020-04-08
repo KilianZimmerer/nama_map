@@ -13,28 +13,32 @@ function create_markers(val, idx, array) {
       <img src="./location_icon.png" style="width:20px"> ${val['address']}
       `
   )
-  if (val['shop_url']){sidebarContent = sidebarContent.concat(
-    `<br> <br>
-    <img src="./home_icon.png" style="width:20px">  <a href="${val['shop_url']}">online shop</a>
+  if (val['shop_url']) {
+    sidebarContent = sidebarContent.concat(
+      `<br> <br>
+    <img src="./home_icon.png" style="width:20px">  <a href="${val['shop_url']}" target="_blank"
+    rel="noopener noreferrer">online shop</a>
     <br> <br>
     `)
   }
   sidebarContent = sidebarContent.concat(
     `<hr>
     Erreichbarkeit: <br> <br>`
-    )
-  if (val['phone_number']){sidebarContent = sidebarContent.concat(
-    `<img src="./phone_icon.png" style="width:20px"> <a href="tel:${val['phone_number']}"> ${val['phone_number']} </a> <br> <br>`
+  )
+  if (val['phone_number']) {
+    sidebarContent = sidebarContent.concat(
+      `<img src="./phone_icon.png" style="width:20px"> <a href="tel:${val['phone_number']}"> ${val['phone_number']} </a> <br> <br>`
     )
   }
-  if (val['email']){
+  if (val['email']) {
     sidebarContent = sidebarContent.concat(
-    `<img src="./mail_icon.png" style="width:16px"> <a href="mailto:${val['email']}"> ${val['email']} </a> <br>`
-    )}
-  sidebarContent = sidebarContent.concat(
-      `<hr>
-    </div>`
+      `<img src="./mail_icon.png" style="width:16px"> <a href="mailto:${val['email']}"> ${val['email']} </a> <br>`
     )
+  }
+  sidebarContent = sidebarContent.concat(
+    `<hr>
+    </div>`
+  )
 
 
 
