@@ -1,4 +1,4 @@
-const RegistrationSuccess = () => `
+export const RegistrationSuccess = () => `
 <div id="registrationSuccess" class="modal fade" role="dialog">
 <div class="modal-dialog">
   <div class="modal-content">

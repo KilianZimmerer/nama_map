@@ -33,8 +33,7 @@ export const fetchShopData = async (): Promise<Shop[]> => {
     const data = await response.json()
     return data.map(createShop)
   }
-  console.log(response)
-  throw new Error('Could not read shop info')
+  throw new Error('Could not fetch shop info')
 }
 
 const createShop = function (data: Data): Shop {

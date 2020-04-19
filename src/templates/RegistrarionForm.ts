@@ -1,4 +1,4 @@
-const RegistrationForm = () => `<div id="shopRegistration" class="modal">
+export const RegistrationForm = () => `<div id="shopRegistration" class="modal">
 <div class="modal-dialog">
   <div class="modal-content">
     <form id="registrationForm" method="POST" enctype="multipart/form-data">

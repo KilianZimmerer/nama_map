@@ -1,5 +1,6 @@
 import * as L from 'leaflet'
 import 'leaflet-sidebar'
+import 'leaflet-sidebar/src/L.Control.Sidebar.css'
 import { Shop } from './data'
 
 export const createLayer = () => {
@@ -32,7 +33,7 @@ export const createMarker = ({ latitude, longitude }: Shop) =>
 export const toggleSidebarOnClick = (sidebar: any) => (
   content: string,
   index: number,
-) => (event: any) => {
+) => () => {
   // redux store?
   const state: number | null = sidebar.state
 

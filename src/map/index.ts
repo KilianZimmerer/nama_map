@@ -1,11 +1,12 @@
 import * as L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+import './map.css'
 
+// Fix icons by direct import
 import markerIcon from 'leaflet/dist/images/marker-icon.png'
 import retinaIcon from 'leaflet/dist/images/marker-icon-2x.png'
 import shadowIcon from 'leaflet/dist/images/marker-shadow.png'
 
-import './map.css'
 import {
   toggleSidebarOnClick,
   createLayer,
@@ -14,8 +15,6 @@ import {
   createSidebarContent,
 } from './utils'
 import { fetchShopData, Shop } from './data'
-
-// delete L.Icon.Default.prototype._getIconUrl
 
 L.Icon.Default.imagePath = './'
 L.Icon.Default.mergeOptions({
@@ -29,22 +28,14 @@ export const initMap = async () => {
   const map = L.map('map', { zoomControl: false })
   const center: L.LatLngExpression = [52.511946, 13.406166]
   const zoom = 12
-
-  map.setView(center, zoom)
-  map.addLayer(createLayer())
-
+  const shops = await fetchShopData()
   const sidebar = createSidebar()
-  map.addControl(sidebar)
 
   const hideSidebar = () => {
     if (sidebar.isVisible()) {
       sidebar.hide()
     }
   }
-
-  map.on('click', hideSidebar)
-
-  const shops = await fetchShopData()
 
   const createMapEntry = (shop: Shop, index: number) => {
     const marker = createMarker(shop)
@@ -54,5 +45,11 @@ export const initMap = async () => {
     marker.on('click', handler)
     marker.addTo(map)
   }
+
+  map.setView(center, zoom)
+  map.addLayer(createLayer())
+  map.addControl(sidebar)
+  map.on('click', hideSidebar)
+
   shops.forEach(createMapEntry)
 }
