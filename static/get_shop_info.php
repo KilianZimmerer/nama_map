@@ -4,6 +4,8 @@ require_once('includes/dbconnect.php');
 ?>
 <?php
 header("Content-Type: application/json; charset=UTF-8");
+// For dev mode
+header("Access-Control-Allow-Origin: *");
 $stmt = $connection->prepare(
   "SELECT
     name,

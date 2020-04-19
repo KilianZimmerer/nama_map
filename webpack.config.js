@@ -1,13 +1,14 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
-const PUBLIC_DIR = 'dist';
+const PUBLIC_DIR = path.join(__dirname, 'dist');
 
 module.exports = {
   mode: 'production',
   entry: './src/index.ts',
-  // devtool: 'inline-source-map',
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -32,15 +33,18 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, PUBLIC_DIR),
+    path: PUBLIC_DIR,
   },
   devServer: {
-    contentBase: path.join(__dirname, PUBLIC_DIR),
+    contentBase: PUBLIC_DIR,
     compress: true,
     port: 9000
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin(),
+    new CopyPlugin([
+      { from: 'static', to: PUBLIC_DIR },
+    ]),
   ],
 };

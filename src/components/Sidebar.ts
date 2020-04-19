@@ -10,5 +10,5 @@ const Sidebar = () =>
       </p>
     </div>`
 // called in Navbar
-  // sidebar.setContent(infosContent);
-  // sidebar.toggle();
+// sidebar.setContent(infosContent);
+// sidebar.toggle();

@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "outDir": "./public/",
+    "outDir": "./dist/",
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "CommonJS",
     "target": "es5",
-    "jsx": "react",
-    "allowJs": true
+    "allowJs": true,
+    "esModuleInterop": true
   },
   "include": [
     "src/**/*",
