@@ -14,7 +14,7 @@ import {
   createMarker,
   createSidebarContent,
 } from './utils'
-import { fetchShopData, Shop } from './data'
+import { fetchShopData, Shop } from './shop'
 
 L.Icon.Default.imagePath = './'
 L.Icon.Default.mergeOptions({
@@ -28,7 +28,6 @@ export const initMap = async () => {
   const map = L.map('map', { zoomControl: false })
   const center: L.LatLngExpression = [52.511946, 13.406166]
   const zoom = 12
-  const shops = await fetchShopData()
   const sidebar = createSidebar()
 
   const hideSidebar = () => {
@@ -51,5 +50,6 @@ export const initMap = async () => {
   map.addControl(sidebar)
   map.on('click', hideSidebar)
 
+  const shops = await fetchShopData()
   shops.forEach(createMapEntry)
 }

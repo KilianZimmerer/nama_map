@@ -1,4 +1,4 @@
-import { Shop } from '../map/data'
+import { Shop } from '../map/shop'
 
 export const WhoAreWe = () =>
   `<div>

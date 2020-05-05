@@ -1,3 +1,5 @@
+import { devConfig as config } from '../config'
+
 export interface Data {
   latitute: string
   longitude: string
@@ -27,7 +29,13 @@ export interface Shop {
 }
 
 export const fetchShopData = async (): Promise<Shop[]> => {
-  const response = await fetch('http://nama.de/get_shop_info.php')
+  const headers = new Headers({
+    Authorization: `Bearer ${config.backend.accessToken}`,
+  })
+  const response = await fetch(`${config.backend.url}/shop/`, {
+    method: 'GET',
+    headers,
+  })
   const status = response.status
   if (status === 200) {
     const data = await response.json()

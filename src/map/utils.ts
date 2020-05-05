@@ -1,7 +1,7 @@
 import * as L from 'leaflet'
 import 'leaflet-sidebar'
 import 'leaflet-sidebar/src/L.Control.Sidebar.css'
-import { Shop } from './data'
+import { Shop } from './shop'
 
 export const createLayer = () => {
   const urlTemplate = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
