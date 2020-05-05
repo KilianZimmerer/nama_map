@@ -1,14 +1,14 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var { CleanWebpackPlugin } = require('clean-webpack-plugin');
+var CopyPlugin = require('copy-webpack-plugin');
+var path = require('path');
 
-const PUBLIC_DIR = path.join(__dirname, 'dist');
+var PUBLIC_DIR = path.join(__dirname, 'dist');
 
 module.exports = {
   mode: 'production',
   entry: './src/index.ts',
-  devtool: 'inline-source-map',
+  // devtool: 'inline-source-map',
   module: {
     rules: [
       {
